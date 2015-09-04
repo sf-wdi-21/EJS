@@ -32,7 +32,6 @@ app.get("/", function (req, res){
 // foods index path
 app.get("/foods", function (req, res){
   // render foods index as JSON
-  console.log("FOODS", foods)
   res.json(foods);
 });
 

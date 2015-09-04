@@ -3,8 +3,9 @@ $(function() {
   pageLoad();
 });
 
-// function definitions
+var foodTemplateURL = "/static/html/foodTemplate.html";
 
+// function definitions
 function pageLoad() {
   // set event listeners
   $("#new-food-form").on("submit", function(e){
@@ -14,15 +15,15 @@ function pageLoad() {
     $.post("/foods", $(this).serialize())
       .done(function(res){
         // append new food to the page
-        getFoods();
         $("#new-food-form")[0].reset();
+        renderFood(res);
       });
   });
 }
 
 function getFoods() {
   $.get("/foods", function(res){ 
-    var foods = res.reverse();
+    var foods = res;
     // grab foods template
     renderFoods(foods)
   });
@@ -30,7 +31,7 @@ function getFoods() {
 
 function renderFoods(foods) {
   // get template through ajax
-  $.get("/static/html/foodTemplate.html", function(templateHTML) {
+  $.get(foodTemplateURL, function(templateHTML) {
     var template = _.template(templateHTML);
     // input foods into template and append to parent
     var foodItems = foods.map(function(food) {
@@ -40,6 +41,14 @@ function renderFoods(foods) {
     $("#food-ul").html("");
     // append foods to ul
     $("#food-ul").append(foodItems);
+  })
+}
+
+function renderFood(food) {
+  $.get(foodTemplateURL, function(templateHTML) {
+    var template = _.template(templateHTML);
+    // append foods to ul
+    $("#food-ul").append(template(food));
   })
 }
 
