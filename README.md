@@ -10,7 +10,7 @@ We're going to be doing two lessons in one: EJS and also a little bit about git 
 * Require it in the project in your index.js file: `app.set('view engine', 'ejs');`
 * For the purpose of learning we will make `profile.ejs` in your views folder
 
-* We will work on one route and for simplicity lets choose "/profile". In our route we will have something similar to:
+* We will work on one route, and for simplicity let's choose "/profile". In our route, we will have something similar to:
 
 ```js
 req.currentUser(function(err, user) {
@@ -31,7 +31,7 @@ Hello <%= taco.email %>
 </head>
 ```
 * Then require that partial at the top of your `profile.ejs` file. Ejs partial (optional): `<% include partials/head %>`
-* You'll notice now that if you go to your `/profile` route the title of your page is "PARTIAL HEAD" and you should have "HELLO myemail@email.com"
+* You'll notice now that if you go to your `/profile` route, the title of your page is "PARTIAL HEAD" and you should have "HELLO myemail@email.com"
 
 * Iterate through the data (optional): 
 
