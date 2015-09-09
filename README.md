@@ -1,14 +1,37 @@
 # EJS_to_Eatly
 
-An example app using EJS (and an underscore template).
+An example app using EJS (and an underscore template).<br>
+We're going to be doing a two in one lesson. EJS and also a little bit about git branches. We hope you have been using git, and if you haven't yet, make a github repo of your work. We will be making a new branch for EJS and at the end of the lesson we will add/commit and push that branch to your repo. From there we can merge to the master branch(and hopefully not have any merge conflicts). 
 
 **Steps**
-* In your terminal type `git checkout -b ejs`
+* In your terminal type `git checkout -b ejs` to make and checkout a new git branch
 * Install ejs: `npm install --save ejs`
-* Require it in the project: `app.set('view engine', 'ejs');`
-* Render a template: `res.render('index');`
-* Require an ejs partial (optional): `<% include partials/head %>`
-* Pass in data (optional): `res.render('index', {foodItems: foods});`
+* Require it in the project in your index.js file: `app.set('view engine', 'ejs');`
+* For the purpose of learning we will make `profile.ejs` in your views folder
+
+* We will work on one route and for simplicity lets choose "/profile". In our route we will have something similar to:
+
+```js
+req.currentUser(function(err, user) {
+  res.render('profile.ejs', {taco: user});
+});
+```
+
+In our profile.ejs
+```html
+Hello <%= taco.email %>
+```
+
+* In our profile route instead of res.sendFile(etc) we will have: `res.render('profile', {taco: user});` This means that we are sending the data of `user` into ejs as a variable of `taco`
+* For partials we will make a new directory called partials in our views folder `mkdir views/partials` and add a head partial `touch views/partials/head.ejs` 
+```html
+<head>
+  <title>PARTIAL HEAD</title>
+</head>
+```
+* Then require that partial at the top of your `profile.ejs` file. Ejs partial (optional): `<% include partials/head %>`
+* You'll notice now that if you go to your `/profile` route the title of your page is "PARTIAL HEAD" and you should have "HELLO myemail@email.com"
+
 * Iterate through the data (optional): 
 
 ```html
