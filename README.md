@@ -1,7 +1,8 @@
-# EJS_to_Eatly
+# EJS-to-Eatly
 
-An example app using EJS (and an underscore template).<br>
-We're going to be doing a two in one lesson. EJS and also a little bit about git branches. We hope you have been using git, and if you haven't yet, make a github repo of your work. We will be making a new branch for EJS and at the end of the lesson we will add/commit and push that branch to your repo. From there we can merge to the master branch(and hopefully not have any merge conflicts). 
+###An example app using EJS (and an underscore template).
+<br>
+We're going to be doing two lessons in one: EJS and also a little bit about git branches. Being the responsible developer you are, you've made a github repo of your work and are pushing to it regularly. We will be making a new branch for EJS and at the end of the lesson we will add/commit and push that branch to your repo. From there we can merge to the master branch and hopefully not have any merge conflicts (but if we do, we'll resolve them). 
 
 **Steps**
 * In your terminal type `git checkout -b ejs` to make and checkout a new git branch
