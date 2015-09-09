@@ -3,7 +3,7 @@
 An example app using EJS (and an underscore template).
 
 **Steps**
-* In your terminal type "git checkout -b ejs"
+* In your terminal type `git checkout -b ejs`
 * Install ejs: `npm install --save ejs`
 * Require it in the project: `app.set('view engine', 'ejs');`
 * Render a template: `res.render('index');`
